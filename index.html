@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山东天厚新材料科技有限公司</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F3460',
+                        secondary: '#E6B325',
+                        dark: '#1A1A2E',
+                        light: '#F5F5F7',
+                        gray: {
+                            100: '#F3F4F6',
+                            200: '#E5E7EB',
+                            300: '#D1D5DB',
+                            400: '#9CA3AF',
+                            500: '#6B7280',
+                            600: '#4B5563',
+                            700: '#374151',
+                            800: '#1F2937',
+                            900: '#111827',
+                        }
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+            }
+            .transition-navbar {
+                transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
+            }
+            .bg-gradient-overlay {
+                background: linear-gradient(to right, rgba(15, 52, 96, 0.9), rgba(15, 52, 96, 0.7));
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter text-gray-800 bg-light antialiased">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-navbar py-4">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <a href="#" class="flex items-center space-x-2">
+<!--                    <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">-->
+<!--                        <span class="text-white font-bold text-xl">TH</span>-->
+<!--                    </div>-->
+                    <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center overflow-hidden">
+                        <img src="image/logo.jpg" alt="天厚新材料logo" class="w-full h-full object-contain">
+                    </div>
+                    <span class="text-xl font-bold text-white text-shadow">天厚新材料</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-white hover:text-secondary transition-colors duration-300 font-medium">公司简介</a>
+                    <a href="#products" class="text-white hover:text-secondary transition-colors duration-300 font-medium">产品中心</a>
+                    <a href="#news" class="text-white hover:text-secondary transition-colors duration-300 font-medium">新闻资讯</a>
+                    <a href="#contact" class="text-white hover:text-secondary transition-colors duration-300 font-medium">联系我们</a>
+                </nav>
+                
+                <!-- 联系按钮 -->
+                <a href="#contact" class="hidden md:block bg-secondary hover:bg-secondary/90 text-primary font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    联系我们
+                </a>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-xl rounded-b-lg mx-4 mt-2 hidden transform transition-all duration-300 ease-in-out">
+            <div class="flex flex-col py-3 px-4 space-y-3">
+                <a href="#about" class="text-primary hover:text-secondary py-2 transition-colors duration-300">公司简介</a>
+                <a href="#products" class="text-primary hover:text-secondary py-2 transition-colors duration-300">产品中心</a>
+                <a href="#news" class="text-primary hover:text-secondary py-2 transition-colors duration-300">新闻资讯</a>
+                <a href="#contact" class="text-primary hover:text-secondary py-2 transition-colors duration-300">联系我们</a>
+                <a href="#contact" class="bg-secondary text-primary font-semibold py-2 px-4 rounded-full text-center">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/618/1920/1080" alt="现代工厂与科技感背景" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-overlay"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold text-white leading-tight text-shadow-lg mb-6 animate-[fadeIn_1s_ease-in-out]">
+                山东天厚新材料科技
+            </h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] text-white/90 max-w-3xl mx-auto mb-10 animate-[fadeIn_1.2s_ease-in-out]">
+                专注于高端软体电磁屏蔽材料的研发、生产与销售，致力于成为全球领先的电子材料供应商。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-[fadeIn_1.4s_ease-in-out]">
+                <a href="#about" class="bg-secondary hover:bg-secondary/90 text-primary font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    了解更多
+                </a>
+                <a href="#products" class="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold py-3 px-8 rounded-full transition-all duration-300">
+                    浏览产品
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#about" class="text-3xl">
+                <i class="fa fa-angle-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 公司简介 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-primary mb-4">公司简介</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    山东天厚新材料科技有限公司成立于2017年，专注于高端软体电磁屏蔽材料的研发、生产与销售
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-primary mb-3">核心业务</h3>
+                            <p class="text-gray-600 mb-3">
+                                高端软体电磁屏蔽材料的研发、生产与销售，产品涵盖导电布、超薄导电膜、纳米银纤维等；导电布年产能已达1300万m²，国内市占率35%以上，连续多年产能规模全国第一。
+                            </p>
+                            <p class="text-gray-600 font-medium">主要应用领域：</p>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+                                <li class="flex items-center bg-gray-100 p-2 rounded">
+                                    <i class="fa fa-industry text-primary mr-2"></i>
+                                    <span>国防军工</span>
+                                </li>
+                                <li class="flex items-center bg-gray-100 p-2 rounded">
+                                    <i class="fa fa-mobile text-primary mr-2 text-xl"></i>
+                                    <span>通讯电子</span>
+                                </li>
+                                <li class="flex items-center bg-gray-100 p-2 rounded">
+                                    <i class="fa fa-car text-primary mr-2"></i>
+                                    <span>新能源汽车</span>
+                                </li>
+                                <li class="flex items-center bg-gray-100 p-2 rounded">
+                                    <i class="fa fa-user text-primary mr-2"></i>
+                                    <span>智能穿戴</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-semibold text-primary mb-3">技术亮点</h3>
+                            <p class="text-gray-600">
+                                20μm超薄导电布、0.007mm无纺导电布均实现国产化替代，填补国内空白，打破国外垄断。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2 relative">
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-[1.02]">
+                        <img src="image/title.jpeg" alt="公司生产基地" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+                    </div>
+                    
+                    <!-- 资质卡片 -->
+                    <div class="absolute -bottom-10 -left-10 bg-white p-4 rounded-lg shadow-xl max-w-xs hidden md:block">
+                        <div class="flex items-center mb-2">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-3">
+                                <i class="fa fa-trophy text-primary"></i>
+                            </div>
+                            <h4 class="font-semibold text-primary">国家高新技术企业</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">国家级专精特新"小巨人"企业</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 公司优势 -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-semibold text-primary text-center mb-12">公司优势</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 研发与人才 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                            <i class="fa fa-flask text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-primary mb-3">研发与人才</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fa fa-circle text-xs text-secondary mt-1.5 mr-2"></i>
+                                <span>与清华大学、西北工业大学、山东大学建立产学研合作</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-circle text-xs text-secondary mt-1.5 mr-2"></i>
+                                <span>研发团队包括博士15人、硕士36人</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-circle text-xs text-secondary mt-1.5 mr-2"></i>
+                                <span>新世纪百千万人才工程国家级人选1人</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 产业链布局 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                            <i class="fa fa-link text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-primary mb-3">产业链布局</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fa fa-circle text-xs text-secondary mt-1.5 mr-2"></i>
+                                <span>投资22亿元建设"天厚5G新材料产业园"</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-circle text-xs text-secondary mt-1.5 mr-2"></i>
+                                <span>占地200亩，布局10条导电布生产线</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-circle text-xs text-secondary mt-1.5 mr-2"></i>
+                                <span>形成完整产业链，实现"电子材料一站式"配套</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 市场与合作 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                            <i class="fa fa-globe text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-primary mb-3">市场与合作</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fa fa-circle text-xs text-secondary mt-1.5 mr-2"></i>
+                                <span>产品出口韩国、日本、印度等国家</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-circle text-xs text-secondary mt-1.5 mr-2"></i>
+                                <span>在深圳、上海等地设办事处</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-circle text-xs text-secondary mt-1.5 mr-2"></i>
+                                <span>与华为、小米、OPPO等百家头部企业合作</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 发展愿景 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                        <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                            <i class="fa fa-lightbulb-o text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-primary mb-3">发展愿景</h4>
+                        <p class="text-gray-600 mb-4">
+                            公司计划以菏泽基地为核心，打造世界最大的电磁屏蔽材料生产基地，成为全球领先的电子材料供应商。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 数据统计 -->
+            <div class="mt-20 bg-primary rounded-2xl overflow-hidden">
+                <div class="grid grid-cols-2 md:grid-cols-4">
+                    <div class="p-6 md:p-8 text-center border-b md:border-b-0 md:border-r border-primary-700">
+                        <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="1300">0</div>
+                        <p class="text-white/80">导电布年产能（万m²）</p>
+                    </div>
+                    <div class="p-6 md:p-8 text-center border-b md:border-b-0 md:border-r border-primary-700">
+                        <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="35">0</div>
+                        <p class="text-white/80">国内市场占有率（%）</p>
+                    </div>
+                    <div class="p-6 md:p-8 text-center border-b md:border-b-0 md:border-r border-primary-700">
+                        <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="15">0</div>
+                        <p class="text-white/80">研发团队博士人数</p>
+                    </div>
+                    <div class="p-6 md:p-8 text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="100">0</div>
+                        <p class="text-white/80">合作头部企业数量</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品中心 -->
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-primary mb-4">产品中心</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    我们专注于高端软体电磁屏蔽材料的研发与生产，为各行业提供优质解决方案
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 产品1：导电布 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative overflow-hidden h-60">
+                        <img src="image/image2.png" alt="导电布产品" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-secondary text-primary font-semibold px-3 py-1 rounded-full text-sm">
+                            主打产品
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-3">导电布</h3>
+                        <p class="text-gray-600 mb-4">
+                            具有优异的导电性能和屏蔽效果，年产能达1300万m²，国内市占率35%以上，连续多年产能规模全国第一。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">20μm超薄</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">高导电</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">柔性好</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-secondary transition-colors">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 产品2：超薄导电膜 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative overflow-hidden h-60">
+                        <img src="image/image2.png" alt="超薄导电膜产品" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-3">超薄导电膜</h3>
+                        <p class="text-gray-600 mb-4">
+                            0.007mm无纺导电膜实现国产化替代，填补国内空白，打破国外垄断，广泛应用于高端电子设备。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">0.007mm</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">高透明</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">耐高温</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-secondary transition-colors">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 产品3：纳米银纤维 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative overflow-hidden h-60">
+                        <img src="image/image1.png" alt="纳米银纤维产品" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-3">纳米银纤维</h3>
+                        <p class="text-gray-600 mb-4">
+                            采用先进纳米技术制造，具有优异的导电性和抗菌性能，适用于智能穿戴、医疗设备等高端领域。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">纳米级</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">抗菌</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">柔性强</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-secondary transition-colors">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 应用领域 -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-semibold text-primary text-center mb-12">应用领域</h3>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-shield text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-primary mb-2">国防军工</h4>
+                        <p class="text-gray-600 text-sm">雷达散射网、防干扰指挥室</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-mobile text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-primary mb-2">通讯电子</h4>
+                        <p class="text-gray-600 text-sm">手机、电脑、车载导航</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-car text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-primary mb-2">新能源汽车</h4>
+                        <p class="text-gray-600 text-sm">车载电子、电池系统</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-user text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-primary mb-2">智能穿戴</h4>
+                        <p class="text-gray-600 text-sm">防辐射服、手机屏蔽袋</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻资讯 -->
+    <section id="news" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-primary mb-4">新闻资讯</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    了解公司最新动态、行业资讯及技术创新
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 新闻1 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="image/ceo.png" alt="公司新闻图片" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="fa fa-calendar-o mr-2"></i>
+                            <span>2025-06-04</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3 group-hover:text-secondary transition-colors">家乡培养了我们，我们更要回报家乡-人民网</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            仲夏时节，走进山东省菏泽市定陶区天厚新材料产业园，导电布生产线上一派繁忙。
+                            伴着机器轰鸣，山东天厚新材料科技有限公司董事长曾庆熙与总经理刘冬带着客户来到车间参观。...
+                        </p>
+                        <a href="https://baijiahao.baidu.com/s?id=1833957555504268250&wfr=spider&for=pc" class="inline-flex items-center text-primary font-medium hover:text-secondary transition-colors">
+                            阅读全文 <i class="fa fa-angle-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 新闻2 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://picsum.photos/id/160/600/400" alt="公司新闻图片" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="fa fa-calendar-o mr-2"></i>
+                            <span>2023-05-28</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3 group-hover:text-secondary transition-colors">天厚5G新材料产业园第三条生产线正式投产</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            5月28日，天厚5G新材料产业园第三条导电布生产线正式投产，标志着公司年产能提升至1300万m²，进一步巩固了公司在国内电磁屏蔽材料市场的领先地位...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-secondary transition-colors">
+                            阅读全文 <i class="fa fa-angle-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 新闻3 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://picsum.photos/id/119/600/400" alt="公司新闻图片" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="fa fa-calendar-o mr-2"></i>
+                            <span>2023-04-10</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3 group-hover:text-secondary transition-colors">天厚新材料与华为签署战略合作协议</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">
+                            4月10日，山东天厚新材料科技有限公司与华为技术有限公司在深圳签署战略合作协议，双方将在5G通信设备电磁屏蔽材料领域展开深度合作...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-secondary transition-colors">
+                            阅读全文 <i class="fa fa-angle-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-block bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    查看更多新闻
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-primary mb-4">联系我们</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    无论您有任何疑问或需求，我们都将竭诚为您服务
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-2 bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">联系方式</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 shrink-0">
+                                <i class="fa fa-map-marker text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">公司地址</h4>
+                                <p class="text-gray-600">山东省菏泽市定陶区梁王路中段路北</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 shrink-0">
+                                <i class="fa fa-phone text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">联系电话</h4>
+                                <p class="text-gray-600">0530-5779699</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 shrink-0">
+                                <i class="fa fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">电子邮箱</h4>
+                                <p class="text-gray-600">1153783616@qq.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 shrink-0">
+                                <i class="fa fa-clock-o text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">工作时间</h4>
+                                <p class="text-gray-600">周一至周五: 8:30 - 17:30</p>
+                                <p class="text-gray-600">周六至周日: 休息</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-gray-800 mb-3">关注我们</h4>
+                        <div class="flex justify-center">
+                            <img src="image/wei.jpg" alt="公司二维码" class="w-32 h-32 rounded-lg border-2 border-gray-200">
+                        </div>
+                        <p class="text-center text-sm text-gray-500 mt-2">扫码关注公众号</p>
+                    </div>
+                    
+                    <div class="mt-8 p-4 bg-primary/5 rounded-lg">
+                        <h4 class="font-semibold text-primary mb-2">分支机构</h4>
+                        <p class="text-gray-600 text-sm">
+                            深圳办事处：深圳市南山区科技园南区科技南十二路
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            上海办事处：上海市浦东新区张江高科技园区博云路
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-3 bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">发送消息</h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的姓名" required>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">邮箱</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的邮箱" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">电话</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的电话">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">主题</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                                <option value="" selected disabled>请选择咨询主题</option>
+                                <option value="product">产品咨询</option>
+                                <option value="cooperation">合作洽谈</option>
+                                <option value="visit">参观考察</option>
+                                <option value="other">其他问题</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">留言内容</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的留言内容" required></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
+                                发送消息
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- 公司位置地图 -->
+            <div class="mt-12 rounded-xl overflow-hidden shadow-lg h-96">
+                <img src="https://picsum.photos/id/1019/1200/600" alt="公司位置地图" class="w-full h-full object-cover">
+                <!-- 实际项目中此处应嵌入地图API -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-primary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+<!--                        <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center">-->
+<!--                            <span class="text-primary font-bold text-xl">TH</span>-->
+<!--                        </div>-->
+                        <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center overflow-hidden">
+                            <img src="image/logo.jpg" alt="天厚新材料logo" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-xl font-bold">天厚新材料</span>
+                    </div>
+                    <p class="text-white/80 mb-6">
+                        专注于高端软体电磁屏蔽材料的研发、生产与销售，致力于成为全球领先的电子材料供应商。
+                    </p>
+                    <div class="flex justify-center">
+                        <img src="image/wei.jpg" alt="公司二维码" class="w-24 h-24 rounded-lg border-2 border-white/20">
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">快速链接</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-white/80 hover:text-white transition-colors">公司简介</a></li>
+                        <li><a href="#products" class="text-white/80 hover:text-white transition-colors">产品中心</a></li>
+                        <li><a href="#news" class="text-white/80 hover:text-white transition-colors">新闻资讯</a></li>
+                        <li><a href="#contact" class="text-white/80 hover:text-white transition-colors">联系我们</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">加入我们</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">隐私政策</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">产品系列</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">导电布</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">超薄导电膜</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">纳米银纤维</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">电磁屏蔽材料</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">定制解决方案</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">联系信息</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker mt-1 mr-3 text-secondary"></i>
+                            <span class="text-white/80">山东省菏泽市定陶区梁王路中段路北</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone mt-1 mr-3 text-secondary"></i>
+                            <span class="text-white/80">0530-5779699</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope mt-1 mr-3 text-secondary"></i>
+                            <span class="text-white/80">1153783616@qq.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-clock-o mt-1 mr-3 text-secondary"></i>
+                            <span class="text-white/80">周一至周五: 8:30 - 17:30</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-white/60 text-sm mb-4 md:mb-0">
+                        © 2023 山东天厚新材料科技有限公司 版权所有 | 鲁ICP备XXXXXXXX号
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-white/60 hover:text-white text-sm transition-colors">使用条款</a>
+                        <a href="#" class="text-white/60 hover:text-white text-sm transition-colors">隐私政策</a>
+                        <a href="#" class="text-white/60 hover:text-white text-sm transition-colors">网站地图</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg transform transition-all duration-300 opacity-0 invisible hover:bg-secondary">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-primary', 'shadow-lg', 'py-2');
+                navbar.classList.remove('py-4');
+                
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                navbar.classList.remove('bg-primary', 'shadow-lg', 'py-2');
+                navbar.classList.add('py-4');
+                
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 移动端菜单
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuToggle.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 返回顶部
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 数字计数动画
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(() => {
+                            counter.innerText = target.toLocaleString();
+                        }, 1);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                    
+                    observer.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+        
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+        
+        // 表单提交
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 这里添加表单验证和提交逻辑
+                alert('感谢您的留言，我们会尽快与您联系！');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
+    
